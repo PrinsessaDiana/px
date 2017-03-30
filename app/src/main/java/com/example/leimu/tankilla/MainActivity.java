@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_gallery) {
-            // Handle the camera action
+
+            fragment = new Gallery();
+
         } else if (id == R.id.nav_service) {
 
         } else if (id == R.id.nav_mobiilitankkaus) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ABC - Easy as 123</string>
+    <string name="app_name">Eatgram!</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +8,6 @@
     <string name="gallery">Gallery</string>
     <string name="palvelut">Palvelut</string>
     <string name="mobiilitankkaus">Mobiilitankkaus</string>
+
+    <string name="camera_button">Capture food!</string>
 </resources>

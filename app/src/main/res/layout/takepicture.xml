@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/capturedImage"
+            android:layout_above="@+id/btnCamera"
+            android:layout_weight="0.96" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_button"
+        android:id="@+id/btnCamera"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#7dbce2"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_row="7"
+        android:layout_column="0" />
+
+</LinearLayout>

@@ -83,7 +83,9 @@ public class MainActivity extends AppCompatActivity
 
             fragment = new Gallery();
 
-        } else if (id == R.id.nav_service) {
+        } else if (id == R.id.nav_takepicture) {
+
+            fragment = new TakePicture();
 
         } else if (id == R.id.nav_mobiilitankkaus) {
 

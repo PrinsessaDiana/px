@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Camera;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -73,6 +77,23 @@ public class TakePicture extends Fragment {
         if(resultCode == RESULT_OK) {
             Bitmap bp = (Bitmap) data.getExtras().get("data");
             capturedCam.setImageBitmap(bp);
+
+            File direct = new File(Environment.getExternalStorageDirectory() + "/images");
+
+
+
+            File file = new File(new File("/storage/emulated/0/images"), "2");
+            if (file.exists())
+                file.delete();
+           try {
+                FileOutputStream out = new FileOutputStream(file);
+                bp.compress(Bitmap.CompressFormat.PNG, 100, out);
+                out.flush();
+                out.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

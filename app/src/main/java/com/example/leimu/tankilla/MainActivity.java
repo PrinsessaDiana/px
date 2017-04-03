@@ -2,10 +2,12 @@ package com.example.leimu.tankilla;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,10 +18,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.File;
+
 import static android.R.attr.fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String DNAME = "food_photos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+      /*  File rootPath = new File(Environment.getExternalStorageDirectory() + DNAME);
+        if(!rootPath.exists()) {
+            rootPath.mkdirs();
+        } */
+
+        File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"images");
+
+        directory.mkdirs();
+
+        Log.d("Peter's App", Environment.getDataDirectory()+File.separator+"im‌​ages");
 
 
     }

@@ -1,10 +1,14 @@
 package com.example.leimu.tankilla;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -21,6 +25,7 @@ import android.view.MenuItem;
 import java.io.File;
 
 import static android.R.attr.fragment;
+import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +36,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        isStoragePermissionGranted();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
 
@@ -48,11 +55,11 @@ public class MainActivity extends AppCompatActivity
             rootPath.mkdirs();
         } */
 
-        File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"images");
+       // File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"images");
 
-        directory.mkdirs();
+       // directory.mkdirs();
 
-        Log.d("Peter's App", Environment.getDataDirectory()+File.separator+"im‌​ages");
+      //  Log.d("Peter's App", Environment.getExternalStoragePublicDirectory(directory, "asdsad"));
 
 
     }
@@ -126,5 +133,24 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
        drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+            return true;
+        }
     }
 }

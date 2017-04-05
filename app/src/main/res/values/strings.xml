@@ -5,9 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="gallery">Gallery</string>
+    <string name="gallery">Food Gallery</string>
     <string name="palvelut">Palvelut</string>
     <string name="mobiilitankkaus">Mobiilitankkaus</string>
 
-    <string name="camera_button">Capture food!</string>
+    <string name="camera_button">Food Capture</string>
 </resources>

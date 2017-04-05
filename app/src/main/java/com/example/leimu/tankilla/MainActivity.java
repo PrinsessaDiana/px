@@ -3,9 +3,11 @@ package com.example.leimu.tankilla;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -108,6 +110,12 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_gallery) {
 
             fragment = new Gallery();
+
+       //Intent gallery_intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+      //  gallery_intent.setType("image/*");
+        //    final int ACTIVITY_SELECT_IMAGE = 1234;
+
+           // startActivityForResult(gallery_intent, ACTIVITY_SELECT_IMAGE);
 
         } else if (id == R.id.nav_takepicture) {
 

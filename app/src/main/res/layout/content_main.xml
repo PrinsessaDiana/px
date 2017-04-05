@@ -12,15 +12,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.leimu.tankilla.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@android:color/holo_blue_dark">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/food_bg"
-        android:alpha=".1">
-
-    </FrameLayout>
+    android:background="@android:color/holo_blue_dark"
+    >
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -29,5 +22,13 @@
         android:layout_alignParentEnd="true">
 
 
+        <FrameLayout
+            android:layout_width="514dp"
+            android:layout_height="561dp"
+            android:background="@drawable/burger"
+            android:alpha=".1">
+
+        </FrameLayout>
     </android.support.design.widget.CoordinatorLayout>
+
 </RelativeLayout>
